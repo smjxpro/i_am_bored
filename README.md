@@ -1,6 +1,6 @@
 # i_am_bored
 
-A new Flutter project.
+A new Flutter project demonstrating clean architecture using GetX.
 
 ## Getting Started
 
