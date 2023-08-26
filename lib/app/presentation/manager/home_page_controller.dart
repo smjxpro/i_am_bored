@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:i_am_bored/app/domain/entities/request/empty_request.dart';
 import 'package:i_am_bored/app/domain/entities/response/activity_response.dart';
@@ -21,5 +22,9 @@ class HomePageController extends GetxController {
     } catch (e) {
       Get.defaultDialog(title: 'Error', content: Text(e.toString()));
     }
+  }
+
+  void onResetActivity() {
+    SystemChannels.platform.invokeMethod('SystemNavigator.pop');
   }
 }

@@ -14,7 +14,6 @@ class ActivityRepositoryImpl implements ActivityRepository {
     if (response.hasError) {
       return Future.error(response.statusText!);
     }
-
     return response.body!;
   }
 }

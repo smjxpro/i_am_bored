@@ -11,6 +11,16 @@ class MyApp extends StatelessWidget {
       title: 'I am bored',
       getPages: AppPages.pages,
       initialRoute: HomePage.routeName,
+      theme: ThemeData(
+        useMaterial3: true,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(fontSize: 16),
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        buttonTheme: ButtonThemeData(
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
     );
   }
 }

@@ -8,37 +8,60 @@ class HomePage extends GetView<HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('I am bored'),
-      ),
-      body: Column(
-        children: [
-          Text('Are you bored?'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () async {
-                  await controller.onGetActivity();
-                },
-                child: Text('Hmm'),
-              ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('Nah! I\'m good!'),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Expanded(
-            child: Obx(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Are you bored?',
+                      style: Theme.of(context).textTheme.titleLarge)
+                  .marginOnly(bottom: 10),
+            ),
+            Obx(
               () => controller.activity.value != null
-                  ? Text('${controller.activity.value!.activity}')
+                  ? Text('You can try this:',
+                      style: Theme.of(context).textTheme.titleMedium)
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () async {
+                            await controller.onGetActivity();
+                          },
+                          child: Text('Hmm'),
+                        ),
+                        SizedBox(width: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            controller.onResetActivity();
+                          },
+                          child: Text('Nah! I\'m good!'),
+                        ),
+                      ],
+                    ),
+            ),
+            SizedBox(height: 10),
+            Obx(
+              () => controller.activity.value != null
+                  ? Column(
+                      children: [
+                        Text('${controller.activity.value!.activity}'),
+                        SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () => controller.onGetActivity(),
+                          child: Text('Nah! Next?'),
+                        ),
+                        ElevatedButton(
+                            onPressed: () => controller.onResetActivity(),
+                            child: Text('Okay!')),
+                      ],
+                    )
                   : Container(),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

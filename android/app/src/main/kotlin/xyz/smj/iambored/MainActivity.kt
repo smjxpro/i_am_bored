@@ -1,4 +1,4 @@
-package com.iamboredblah.app
+package xyz.smj.iambored
 
 import io.flutter.embedding.android.FlutterActivity
 

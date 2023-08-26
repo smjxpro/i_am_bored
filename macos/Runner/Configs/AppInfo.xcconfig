@@ -8,7 +8,7 @@
 PRODUCT_NAME = i_am_bored
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.iamboredblah.iAmBored
+PRODUCT_BUNDLE_IDENTIFIER = xyz.smj.iAmBored
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2021 com.iamboredblah. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 xyz.smj. All rights reserved.
